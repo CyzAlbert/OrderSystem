@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -26,7 +27,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductInfo findOne(String productId) {
-        return repository.findById(Integer.parseInt(productId)).get();
+    	Optional<ProductInfo> optional=repository.findById(productId);
+    	if(optional.isPresent()) {
+    		return optional.get();
+    	}
+    	else {
+			return null;
+		}
     }
 
     @Override
@@ -48,7 +55,7 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public void increaseStock(List<CartDTO> cartDTOList) {
         for (CartDTO cartDTO: cartDTOList) {
-            ProductInfo productInfo = repository.findById(Integer.parseInt(cartDTO.getProductId())).get();
+            ProductInfo productInfo = repository.findById(cartDTO.getProductId()).get();
             if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
@@ -64,7 +71,7 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public void decreaseStock(List<CartDTO> cartDTOList) {
         for (CartDTO cartDTO: cartDTOList) {
-            ProductInfo productInfo = repository.findById(Integer.parseInt(cartDTO.getProductId())).get();
+            ProductInfo productInfo = repository.findById(cartDTO.getProductId()).get();
             if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
@@ -82,7 +89,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductInfo onSale(String productId) {
-        ProductInfo productInfo = repository.findById(Integer.parseInt(productId)).get();
+        ProductInfo productInfo = repository.findById(productId).get();
         if (productInfo == null) {
             throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
         }
@@ -97,7 +104,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductInfo offSale(String productId) {
-        ProductInfo productInfo = repository.findById(Integer.parseInt(productId)).get();
+        ProductInfo productInfo = repository.findById(productId).get();
         if (productInfo == null) {
             throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
         }
