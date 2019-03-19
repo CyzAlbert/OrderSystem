@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class BuyerServiceImpl implements BuyerService {
 	
-	private final Logger log = LoggerFactory.getLogger(BuyerServiceImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(BuyerServiceImpl.class);
 
     @Autowired
     private OrderService orderService;

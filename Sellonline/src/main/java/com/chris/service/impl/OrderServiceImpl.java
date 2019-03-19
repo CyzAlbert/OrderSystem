@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class OrderServiceImpl implements OrderService {
 	
-	private Logger log=LoggerFactory.getLogger(OrderServiceImpl.class);
+	private static final Logger log=LoggerFactory.getLogger(OrderServiceImpl.class);
 
     @Autowired
     private ProductService productService;
@@ -64,7 +64,7 @@ public class OrderServiceImpl implements OrderService {
         String orderId = KeyUtil.genUniqueKey();
         BigDecimal orderAmount = new BigDecimal(BigInteger.ZERO);
 
-//        List<CartDTO> cartDTOList = new ArrayList<>();
+//      List<CartDTO> cartDTOList = new ArrayList<>();
 
         //1. 查询商品（数量, 价格）
         for (OrderDetail orderDetail: orderDTO.getOrderDetailList()) {

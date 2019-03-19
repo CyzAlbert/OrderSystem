@@ -25,7 +25,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class PayServiceImpl implements PayService {
 	
-	private Logger log=LoggerFactory.getLogger(PayServiceImpl.class);
+	private static final Logger log=LoggerFactory.getLogger(PayServiceImpl.class);
 
     private static final String ORDER_NAME = "微信点餐订单";
 

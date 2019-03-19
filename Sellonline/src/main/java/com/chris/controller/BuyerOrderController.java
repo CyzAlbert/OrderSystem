@@ -32,7 +32,7 @@ import java.util.Map;
 @Slf4j
 public class BuyerOrderController {
 	
-	private Logger log=LoggerFactory.getLogger(BuyerOrderController.class);
+	private static final Logger log=LoggerFactory.getLogger(BuyerOrderController.class);
 
     @Autowired
     private OrderService orderService;

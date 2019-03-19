@@ -22,7 +22,7 @@ import java.util.List;
 @Slf4j
 public class PushMessageServiceImpl implements PushMessageService {
 	
-	private Logger log=LoggerFactory.getLogger(PushMessageServiceImpl.class);
+	private static final Logger log=LoggerFactory.getLogger(PushMessageServiceImpl.class);
 
     @Autowired
     private WxMpService wxMpService;
