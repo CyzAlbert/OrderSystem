@@ -2,10 +2,11 @@ package com.chris.viewobj;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 
-public class ProductInfoVO {
+public class ProductInfoVO implements Serializable {
 
     @JsonProperty("id")
     private String productId;

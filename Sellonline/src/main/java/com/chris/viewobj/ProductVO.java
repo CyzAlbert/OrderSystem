@@ -2,10 +2,11 @@ package com.chris.viewobj;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.List;
 
 
-public class ProductVO {
+public class ProductVO implements Serializable {
 
     @JsonProperty("name")
     private String categoryName;

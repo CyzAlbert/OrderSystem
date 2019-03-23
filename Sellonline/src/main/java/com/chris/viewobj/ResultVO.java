@@ -1,7 +1,9 @@
 package com.chris.viewobj;
 
 
-public class ResultVO<T> {
+import java.io.Serializable;
+
+public class ResultVO<T> implements Serializable {
 
     /** 错误码. */
     private Integer code;

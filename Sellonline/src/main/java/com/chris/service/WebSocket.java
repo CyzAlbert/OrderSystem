@@ -19,7 +19,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 @Slf4j
 public class WebSocket {
 	
-	private final Logger log = LoggerFactory.getLogger(WebSocket.class);
+	private static final Logger log = LoggerFactory.getLogger(WebSocket.class);
 
     private Session session;
 

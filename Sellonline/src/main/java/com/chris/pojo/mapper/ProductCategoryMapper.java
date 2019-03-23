@@ -26,6 +26,8 @@ public interface ProductCategoryMapper {
 	
 	@Update("update product_category set category_name=#{categoryName} where category_type=#{categoryType}")
 	int updateCategoryName(@Param("categoryName") String categoryName,@Param("categoryType") Integer categoryType);
-	
+
+
+//	使用mapper.xml的方式
 	ProductCategory selectCategoryType(Integer categoryType);
 }
